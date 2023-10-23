@@ -63,4 +63,19 @@ class CoursesService {
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
+    fun listById (id:Long?):Courses?{
+        return coursesRepository.findById(id)
+    }
+    fun delete (id: Long?):Boolean?{
+        try{
+            val response = coursesRepository.findById(id)
+                    ?: throw Exception("ID no existe")
+            coursesRepository.deleteById(id!!)
+            return true
+        }
+        catch (ex:Exception){
+            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        }
+    }
+
 }

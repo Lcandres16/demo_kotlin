@@ -47,4 +47,14 @@ class CoursesController {
     fun delete (@PathVariable("id") id: Long):Boolean?{
         return coursesService.delete(id)
     }
+    @GetMapping("/{id}")
+    fun listById (@PathVariable("id") id: Long): ResponseEntity<*>{
+        return ResponseEntity(coursesService.listById (id), HttpStatus.OK)
+
+    }
+    @DeleteMapping("/delete/{id}")
+    fun delete (@PathVariable("id") id: Long):Boolean?{
+        return coursesService.delete(id)
+
+ }
 }

@@ -43,18 +43,14 @@ class CoursesController {
         return ResponseEntity(coursesService.updateName(courses), HttpStatus.OK)
     }
 
-    @DeleteMapping("/courses/{id}")
+    @DeleteMapping("/delete/{id}")
     fun delete (@PathVariable("id") id: Long):Boolean?{
         return coursesService.delete(id)
     }
     @GetMapping("/{id}")
-    fun listById (@PathVariable("id") id: Long): ResponseEntity<*>{
+    fun listById (@PathVariable("id") id: Long): ResponseEntity<Courses>{
         return ResponseEntity(coursesService.listById (id), HttpStatus.OK)
 
     }
-    @DeleteMapping("/delete/{id}")
-    fun delete (@PathVariable("id") id: Long):Boolean?{
-        return coursesService.delete(id)
 
  }
-}

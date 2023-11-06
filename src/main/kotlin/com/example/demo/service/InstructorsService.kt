@@ -24,10 +24,12 @@ class InstructorsService {
 
     fun save(instructors: Instructors): Instructors {
         try{
+            instructors.firstname?.takeIf{ it.trim().isNotEmpty()}
+                    ?:throw  Exception("Nombres no debe ser vacio")
             return instructorsRepository.save(instructors)
         }
         catch (ex:Exception){
-            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+            throw ResponseStatusException(HttpStatus.BAD_REQUEST)
         }
     }
 

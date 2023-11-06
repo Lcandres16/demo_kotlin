@@ -20,7 +20,7 @@ class Courses {
     var coursesname: String? = null
 
     @Column(name = "department")
-    var departament: String? = null
+    var department: String? = null
 
     @Column(name = "credithours")
     var credithours: Int? = null

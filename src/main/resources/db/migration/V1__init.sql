@@ -11,5 +11,7 @@ CREATE TABLE IF NOT EXISTS instructors (
     firstname VARCHAR(50),
     lastname VARCHAR(50),
     department VARCHAR(50),
-    PRIMARY KEY (id)
+    courses_id INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (courses_id) REFERENCES courses(id)
     );

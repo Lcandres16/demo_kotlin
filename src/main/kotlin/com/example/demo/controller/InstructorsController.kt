@@ -2,6 +2,7 @@ package com.example.demo.controller
 
 import com.example.demo.model.Instructors
 import com.example.demo.service.InstructorsService
+import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -29,7 +30,7 @@ class InstructorsController {
     }
 
     @PostMapping
-    fun save (@RequestBody instructors: Instructors): ResponseEntity<Instructors> {
+    fun save (@RequestBody  @Valid instructors: Instructors): ResponseEntity<Instructors> {
         return ResponseEntity(instructorsService.save(instructors), HttpStatus.OK)
     }
 

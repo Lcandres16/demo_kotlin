@@ -7,22 +7,19 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import jakarta.validation.constraints.NotBlank
 
 @Entity
 @Table(name = "instructors")
+
 class Instructors {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     @Column(updatable = false)
     var id: Long? = null
-
-    @Column(name = "firstname")
+    @NotBlank(message="Campo obligatorio") //validate
     var firstname: String? = null
-
-    @Column(name = "lastname")
+    @NotBlank(message="Campo obligatorio")  //validate
     var lastname: String? = null
-
-    @Column(name = "department")
     var department: Int? = null
-
 }
